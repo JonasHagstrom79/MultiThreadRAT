@@ -78,12 +78,12 @@ namespace MultiThreadRAT
 
         private void BeepCommand()
         {
-            MessageBox.Show("Hello world!");
+            Console.Beep(500, 2000);
         }
 
         private void MessageCommand()
-        {
-            Console.Beep(500, 2000); 
+        {            
+            MessageBox.Show("Hello world!");
         }
     }
 }
